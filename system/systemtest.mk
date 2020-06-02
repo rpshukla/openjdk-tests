@@ -46,8 +46,8 @@ ifeq (,$(findstring $(JDK_IMPL),hotspot))
 	OPENJ9_PRAM=;$(SYSTEMTEST_RESROOT)$(D)openj9-systemtest
 endif
 
-define SYSTEMTEST_CMD_TEMPLATE
 export TR_disableSimplifyNullToException=1
+define SYSTEMTEST_CMD_TEMPLATE
 perl $(SYSTEMTEST_RESROOT)$(D)stf$(D)stf.core$(D)scripts$(D)stf.pl \
 	-test-root=$(Q)$(SYSTEMTEST_RESROOT)$(D)stf;$(SYSTEMTEST_RESROOT)$(D)openjdk-systemtest$(OPENJ9_PRAM)$(Q) \
 	-systemtest-prereqs=$(Q)$(SYSTEMTEST_RESROOT)$(D)systemtest_prereqs$(Q) \
